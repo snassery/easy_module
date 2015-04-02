@@ -158,20 +158,16 @@ function easy_module_theme($existing, $type, $theme, $path) {
     ),
   );
 }
-
-function easy_module_user($abbreviation = '', $offset = -1, $is_daylight_saving_time = NULL) {
-  // An abbreviation of "0" passed in the callback arguments should be
-  // interpreted as the empty string.
-  $abbreviation = $abbreviation ? $abbreviation : '';
-  $timezone = function_exists('timezone_name_from_abbr') ? timezone_name_from_abbr($abbreviation, intval($offset), $is_daylight_saving_time) : 'UTC';
-  // The client date is passed in for debugging purposes.
-  $date = isset($_GET['date']) ? $_GET['date'] : '';
-  // Log a debug message.
-  watchdog('timezone', 'Detected time zone: %timezone; client date: %date; abbreviation: %abbreviation; offset: %offset; daylight saving time: %is_daylight_saving_time.', array('%timezone' => $timezone, '%date' => $date, '%abbreviation' => $abbreviation, '%offset' => $offset, '%is_daylight_saving_time' => $is_daylight_saving_time));
-  drupal_json($timezone);
-   ),
-    ),
-  );
+function easy_module_get_user_timezone() {
+  global $user;
+  if (variable_get('configurable_timezones', 1) && $user->uid && $user->timezone) {
+    return $user->timezone;
+  }
+  else {
+    // Ignore PHP strict notice if time zone has not yet been set in the php.ini
+    // configuration.
+    return variable_get('date_default_timezone', @date_default_timezone_get());
+  }
 }
 
 /**
