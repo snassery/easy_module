@@ -171,6 +171,7 @@ function easy_module_user_timezone($abbreviation = '', $offset = -1, $is_dayligh
   drupal_json($timezone);
 }
 
+
 /**
  * Implements hook_library().
  *
