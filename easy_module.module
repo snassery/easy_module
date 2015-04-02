@@ -209,3 +209,4 @@ function easy_module_library() {
   );
   return $libraries;
 }
+?>
