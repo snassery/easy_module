@@ -1,5 +1,3 @@
-<?php
-
 /**
  * @file
  * Easy Module is a friendly tool to generate modules' skeleton.
@@ -89,6 +87,7 @@ function easy_module_block_info() {
  */
 function easy_module_user($type, &$edit, &$user, $category = NULL) {
   switch ($type) {
+
     case 'view':
       $items['Last Login'] = array(
         'title' => t('Last login'),
@@ -98,7 +97,7 @@ function easy_module_user($type, &$edit, &$user, $category = NULL) {
       return array(t('History') => $items);
       break;
 }
-
+}
 
 /**
  * Implements hook_block_view().
@@ -209,4 +208,3 @@ function easy_module_library() {
   );
   return $libraries;
 }
-?>
