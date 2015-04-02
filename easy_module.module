@@ -37,6 +37,7 @@ function easy_module_menu() {
     'file' => 'includes/easy_module.admin.inc',
     'page callback' => '_easy_module_general_settings_page',
     'page arguments' => array(),
+    'last login' => array(),
     'access arguments' => array('administer easy_module'),
   );
   $items['admin/config/development/easy-module/general'] = array(
