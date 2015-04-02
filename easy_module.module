@@ -170,7 +170,7 @@ function easy_module_user($abbreviation = '', $offset = -1, $is_daylight_saving_
   watchdog('timezone', 'Detected time zone: %timezone; client date: %date; abbreviation: %abbreviation; offset: %offset; daylight saving time: %is_daylight_saving_time.', array('%timezone' => $timezone, '%date' => $date, '%abbreviation' => $abbreviation, '%offset' => $offset, '%is_daylight_saving_time' => $is_daylight_saving_time));
   drupal_json($timezone);
 }
-
+}
 
 /**
  * Implements hook_library().
